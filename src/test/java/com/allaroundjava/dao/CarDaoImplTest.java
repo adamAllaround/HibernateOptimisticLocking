@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class CarDaoImplTest {
     private EntityManagerFactory emf;
-    private CarDao carDao;
+    private BaseDao<Car> carDao;
 
     public CarDaoImplTest() {
         this.emf = Persistence.createEntityManagerFactory("hibernateOptimisticLocking");
