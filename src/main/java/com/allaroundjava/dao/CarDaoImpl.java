@@ -25,11 +25,11 @@ public class CarDaoImpl implements CarDao {
     }
 
     public void persist(Car car) {
-        log.debug("Persisting Car with id {}",car.getId());
+        log.debug("Persisting Car with make {}",car.getMake());
         executeInTransaction(entityManager -> entityManager.persist(car));
     }
 
-    private void executeInTransaction(Consumer<EntityManager> consumer) {
+    public void executeInTransaction(Consumer<EntityManager> consumer) {
         EntityManager entityManager = emf.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();

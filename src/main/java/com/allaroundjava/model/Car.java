@@ -41,4 +41,8 @@ public class Car {
     public void setModel(String model) {
         this.model = model;
     }
+
+    public int getVersion() {
+        return version;
+    }
 }
