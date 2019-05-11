@@ -1,17 +1,12 @@
 package com.allaroundjava.dao;
 
 import com.allaroundjava.model.FinancialTransaction;
-import com.allaroundjava.model.FinancialTransaction;
 import org.junit.Assert;
 import org.junit.Test;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 import java.time.LocalDateTime;
-import java.util.Optional;
-
-import static org.junit.Assert.*;
 
 public class FinancialTransactionDaoImplTest {
     private EntityManagerFactory emf;
