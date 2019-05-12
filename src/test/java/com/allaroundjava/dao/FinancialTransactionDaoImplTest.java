@@ -21,7 +21,7 @@ public class FinancialTransactionDaoImplTest {
     public void whenModifyingFinancialTransaction_thenTimestampUpdated() {
         FinancialTransaction financialTransaction = createFinancialTransaction("123456789");
         financialTransactionDao.persist(financialTransaction);
-        LocalDateTime originalDateCreated = financialTransactionDao.getById(financialTransaction.getId()).get().getDateCreated();
+        LocalDateTime originalDateCreated = financialTransactionDao.getById(financialTransaction.getId()).get().getLastUpdated();
 
         financialTransactionDao.executeInTransaction(entityManager -> {
             FinancialTransaction financialTransactionInTransaction = entityManager.find(FinancialTransaction.class, financialTransaction.getId());
@@ -29,7 +29,7 @@ public class FinancialTransactionDaoImplTest {
         });
 
         FinancialTransaction retrievedFinancialTransaction = financialTransactionDao.getById(financialTransaction.getId()).get();
-        Assert.assertNotEquals(originalDateCreated, retrievedFinancialTransaction.getDateCreated());
+        Assert.assertNotEquals(originalDateCreated, retrievedFinancialTransaction.getLastUpdated());
     }
 
     private FinancialTransaction createFinancialTransaction(String accountNumber) {

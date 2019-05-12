@@ -19,7 +19,7 @@ public class FinancialTransaction {
 
     @Column(nullable = false)
     @Version
-    private LocalDateTime dateCreated;
+    private LocalDateTime lastUpdated;
 
     public Long getId() {
         return id;
@@ -29,8 +29,8 @@ public class FinancialTransaction {
         return accountNumber;
     }
 
-    public LocalDateTime getDateCreated() {
-        return dateCreated;
+    public LocalDateTime getLastUpdated() {
+        return lastUpdated;
     }
 
     public void setAccountNumber(String accountNumber) {
